@@ -1,4 +1,5 @@
 # ユーザー
+puts 'Creating Users...'
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
@@ -7,6 +8,7 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
 
+puts 'Creating Faker Users...'
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
@@ -19,6 +21,7 @@ User.create!(name:  "Example User",
               activated_at: Time.zone.now)
 end
 
+puts 'Creating Microposts...'
 # マイクロポスト
 users = User.order(:created_at).take(6)
 50.times do
@@ -26,6 +29,7 @@ users = User.order(:created_at).take(6)
   users.each { |user| user.microposts.create!(content: content) }
 end
 
+puts 'Creating Relationships...'
 # リレーションシップ
 users = User.all
 user  = users.first
